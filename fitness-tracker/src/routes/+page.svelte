@@ -24,40 +24,41 @@
     }
   }
 
-
   onMount(() => {
     loadBodyMeasurements();
     loadWorkouts();
   });
 
   $: latestMeasurement = bodyMeasurements[0];
-  $: weightData = bodyMeasurements.filter(e => e.weight).map(e => ({ x: e.date, y: e.weight })).reverse();
-  $: bodyFatData = bodyMeasurements.filter(e => e.body_fat_percentage).map(e => ({ x: e.date, y: e.body_fat_percentage })).reverse();
+  $: weightData = bodyMeasurements
+    .filter((e) => e.weight)
+    .map((e) => ({ x: e.date, y: e.weight }))
+    .reverse();
+  $: bodyFatData = bodyMeasurements
+    .filter((e) => e.body_fat_percentage)
+    .map((e) => ({ x: e.date, y: e.body_fat_percentage }))
+    .reverse();
 </script>
 
 <div class="dashboard">
   <header>
-    <h1>Fitness Tracker</h1>
+    <h1>Fitness!</h1>
   </header>
 
   <div class="tabs">
-    <button 
+    <button
       class="tab-btn {activeTab === 'measurements' ? 'active' : ''}"
-      on:click={() => activeTab = 'measurements'}
+      on:click={() => (activeTab = 'measurements')}
     >
       Body Measurements
     </button>
-    <button 
-      class="tab-btn {activeTab === 'workouts' ? 'active' : ''}"
-      on:click={() => activeTab = 'workouts'}
-    >
+    <button class="tab-btn {activeTab === 'workouts' ? 'active' : ''}" on:click={() => (activeTab = 'workouts')}>
       Workouts
     </button>
   </div>
 
   {#if activeTab === 'measurements'}
     <div class="tab-content">
-
       {#if latestMeasurement}
         <div class="stats-grid">
           <div class="stat-card">
@@ -102,19 +103,20 @@
     </div>
   {:else}
     <div class="tab-content">
-
       {#if workouts.length > 0}
         <div class="workouts-section">
           <h3>Recent Workouts</h3>
           <div class="workouts-list">
             {#each workouts.slice(0, 10) as workout}
               <div class="workout-item">
-                <span class="workout-date">{workout.date}</span>
-                <span class="workout-details">
+                <div class="workout-date">{workout.date}</div>
+                <div class="workout-details">
                   {#if workout.workout_duration}Duration: {workout.workout_duration}min{/if}
-                  {#if workout.calories_burned} • Calories: {workout.calories_burned}{/if}
-                  {#if workout.notes} • {workout.notes}{/if}
-                </span>
+                  {#if workout.calories_burned}
+                    • Calories: {workout.calories_burned}{/if}
+                  {#if workout.notes}
+                    • {workout.notes}{/if}
+                </div>
               </div>
             {/each}
           </div>
@@ -148,7 +150,7 @@
     border-radius: 12px;
     padding: 0.5rem;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .tab-btn {
@@ -177,10 +179,15 @@
   }
 
   @keyframes fadeIn {
-    from { opacity: 0; transform: translateY(10px); }
-    to { opacity: 1; transform: translateY(0); }
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
   }
-
 
   h1 {
     color: #333;
@@ -212,7 +219,7 @@
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
 
@@ -241,7 +248,7 @@
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .chart-container h3 {
@@ -253,7 +260,7 @@
     background: white;
     padding: 1.5rem;
     border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   }
 
   .workouts-section h3 {
@@ -268,22 +275,22 @@
   }
 
   .workout-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
     padding: 0.75rem;
     background: #f8f9fa;
     border-radius: 8px;
   }
 
   .workout-date {
-    font-weight: 500;
+    font-weight: 600;
     color: #333;
+    font-size: 0.95rem;
+    margin-bottom: 0.25rem;
   }
 
   .workout-details {
     color: #666;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
+    line-height: 1.4;
   }
 
   .empty-state {
@@ -300,11 +307,11 @@
     .dashboard {
       padding: 1rem;
     }
-    
+
     .charts-grid {
       grid-template-columns: 1fr;
     }
-    
+
     .chart-container {
       min-width: 0;
     }
