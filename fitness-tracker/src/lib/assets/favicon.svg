@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <title>fitness-dumbbell</title>
+  <!-- Dumbbell weights -->
+  <rect x="2" y="10" width="6" height="12" rx="2" fill="#444" stroke="#333" stroke-width="0.5"/>
+  <rect x="24" y="10" width="6" height="12" rx="2" fill="#444" stroke="#333" stroke-width="0.5"/>
+  
+  <!-- Dumbbell bar -->
+  <rect x="8" y="14" width="16" height="4" rx="1" fill="#666" stroke="#555" stroke-width="0.5"/>
+  
+  <!-- Handle grip lines -->
+  <line x1="10" y1="15" x2="10" y2="17" stroke="#777" stroke-width="0.5"/>
+  <line x1="12" y1="15" x2="12" y2="17" stroke="#777" stroke-width="0.5"/>
+  <line x1="20" y1="15" x2="20" y2="17" stroke="#777" stroke-width="0.5"/>
+  <line x1="22" y1="15" x2="22" y2="17" stroke="#777" stroke-width="0.5"/>
+  
+  <!-- Sweat drops -->
+  <ellipse cx="7" cy="8" rx="1.5" ry="2" fill="#4A90E2" opacity="0.7"/>
+  <ellipse cx="11" cy="6" rx="1" ry="1.5" fill="#4A90E2" opacity="0.6"/>
+  <ellipse cx="21" cy="7" rx="1.2" ry="1.8" fill="#4A90E2" opacity="0.7"/>
+  <ellipse cx="25" cy="5" rx="0.8" ry="1.2" fill="#4A90E2" opacity="0.6"/>
+  <ellipse cx="16" cy="4" rx="1" ry="1.5" fill="#4A90E2" opacity="0.6"/>
+  
+  <!-- Small sweat drops -->
+  <circle cx="9" cy="26" r="0.8" fill="#4A90E2" opacity="0.5"/>
+  <circle cx="23" cy="25" r="0.6" fill="#4A90E2" opacity="0.5"/>
+  <circle cx="14" cy="27" r="0.7" fill="#4A90E2" opacity="0.5"/>
+</svg>
